@@ -6,7 +6,8 @@
   "keywords": [
     "node-red",
     "filter",
-    "switch"
+    "switch",
+    "if"
   ],
   "node-red": {
     "nodes": {
