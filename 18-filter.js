@@ -71,7 +71,6 @@ module.exports = function(RED) {
                     node.itemPropertyType = node.propertyType
                 }
 
-                console.log(messages);
                 for (let msg of messages) {
                     let prop = RED.util.evaluateNodeProperty(node.itemProperty,node.itemPropertyType,node,msg);
                     if (node.itemPropertyType === 'item') {
