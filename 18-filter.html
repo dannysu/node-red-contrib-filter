@@ -4,6 +4,8 @@
 		color: '#A6BBCF',
 		defaults: {
 			name: { value: "" },
+            property: { value: "payload", required: true },
+            propertyType: { value: "msg" },
             outputs: { value: 1 }
 		},
 		inputs: 1,
@@ -16,6 +18,11 @@
             $("#node-input-outputs").spinner({
                 min:1
             });
+
+            $("#node-input-property").typedInput({ default: this.propertyType || 'msg', types: ['msg', 'flow', 'global'] });
+        },
+        oneditsave: function() {
+            this.propertyType = $("#node-input-property").typedInput('type');
         }
 	});
 </script>
@@ -29,6 +36,11 @@
     <div class="form-row">
         <label for="node-input-outputs"><i class="fa fa-random"></i> Outputs</label>
         <input id="node-input-outputs" style="width: 60px;" value="1">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-property">Property</label>
+        <input type="text" id="node-input-property" style="width: 70%"/>
     </div>
 </script>
 
