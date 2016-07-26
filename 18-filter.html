@@ -7,6 +7,8 @@
             property: { value: "payload", required: true },
             propertyType: { value: "msg" },
             asArray: { value: false },
+            itemProperty: { value: 'payload' },
+            itemPropertyType: { value: 'item' },
             outputs: { value: 1 }
 		},
 		inputs: 1,
@@ -24,20 +26,30 @@
 
             var updateFilterType = function() {
                 if ($("#node-input-filter-type").prop('checked')) {
-                    // TODO
+                    $("#node-input-item-property-row").show();
                 }
                 else {
-                    // TODO
+                    $("#node-input-item-property-row").hide();
                 }
             };
             $("#node-input-filter-type").change(updateFilterType);
             $("#node-input-filter-type").prop('checked', this.asArray);
             updateFilterType();
+
+            var customType = {
+                value: 'item',
+                label: '____[i].',
+                hasValue: true
+            };
+            $("#node-input-item-property").typedInput({ default: this.itemPropertyType || 'item', types: [customType, 'flow', 'global'] });
+            $("#node-input-item-property").val(this.itemProperty);
         },
         oneditsave: function() {
             var node = this;
             node.propertyType = $("#node-input-property").typedInput('type');
             node.asArray = $("#node-input-filter-type").prop('checked');
+            node.itemProperty = $("#node-input-item-property").typedInput('value');
+            node.itemPropertyType = $("#node-input-item-property").typedInput('type');
         }
 	});
 </script>
@@ -62,6 +74,11 @@
         <label>&nbsp;</label>
         <input type="checkbox" id="node-input-filter-type" style="display: inline-block; width: auto; vertical-align: top;">
         <label for="node-input-filter-type" style="width: 70%;">Filter as an array of messages</label>
+    </div>
+
+    <div class="form-row" id="node-input-item-property-row" style="display: none;">
+        <label>&nbsp;</label>
+        <input type="text" id="node-input-item-property" style="width: 70%"/>
     </div>
 </script>
 
