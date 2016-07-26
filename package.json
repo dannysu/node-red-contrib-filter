@@ -1,0 +1,21 @@
+{
+  "name": "node-red-contrib-filter",
+  "version": "0.1.0",
+  "description": "A Node-RED node to filter message(s)",
+  "license": "Apache-2.0",
+  "keywords": [
+    "node-red",
+    "filter",
+    "switch"
+  ],
+  "node-red": {
+    "nodes": {
+      "filter": "18-filter.js"
+    }
+  },
+  "author": {
+    "name": "Danny Su",
+    "email": "contact@dannysu.com"
+  },
+  "scripts": {}
+}
