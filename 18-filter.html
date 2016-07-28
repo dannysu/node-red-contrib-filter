@@ -24,7 +24,7 @@
         hasValue: false
     };
 
-    function resizeRule(rule) {
+    function resizeItem(rule) {
         var newWidth = rule.width();
         var selectField = rule.find("select");
         var type = selectField.val() || "";
@@ -43,7 +43,7 @@
         }
         selectField.width(selectWidth);
         if (type === "btwn") {
-            btwnField1.typedInput("width", (newWidth - selectWidth - 70));
+            btwnField1.typedInput("width", (newWidth - selectWidth - 80));
             btwnField2.typedInput("width", (newWidth - selectWidth - 70));
         }
         else {
@@ -51,7 +51,7 @@
                 // valueField.hide();
             }
             else {
-                valueField.typedInput("width", (newWidth - selectWidth - 70));
+                valueField.typedInput("width", (newWidth - selectWidth - 80));
             }
         }
     }
@@ -78,7 +78,7 @@
         var caseSensitive = $('<input/>',{id:"node-input-rule-case-"+i,class:"node-input-rule-case",type:"checkbox",style:"width:auto;vertical-align:top"}).appendTo(row2);
         $('<label/>',{for:"node-input-rule-case-"+i,style:"margin-left: 3px;"}).text(caseLabel).appendTo(row2);
         selectField.change(function() {
-            resizeRule(container);
+            resizeItem(container);
             var type = selectField.val();
             if (type === "btwn") {
                 valueField.typedInput('hide');
@@ -119,7 +119,7 @@
         }
         selectField.change();
 
-        var finalspan = $('<span/>',{style:"float: right;margin-top: 6px;"}).appendTo(row);
+        var finalspan = $('<span/>',{style:"float: right;"}).appendTo(row);
         finalspan.append(' &#8594; <input class="node-input-rule-output-index" style="width:35px" type="text" value="' + (rule.output) + '"></input> ');
     }
 
@@ -175,7 +175,7 @@
                 .css('min-width','450px')
                 .editableList({
                     addItem: addItem,
-                    resizeItem: resizeRule,
+                    resizeItem: resizeItem,
                     removable: true,
                     sortable: true
                 });
@@ -253,7 +253,7 @@
         <label for="node-input-filter-type" style="width: 70%;">Filter as an array of messages</label>
     </div>
 
-    <div class="form-row" id="node-input-item-property-row" style="display: none;">
+    <div class="form-row" id="node-input-item-property-row">
         <label>&nbsp;</label>
         <input type="text" id="node-input-item-property" style="width: 70%"/>
     </div>
