@@ -167,8 +167,11 @@
                 label: '____[i].',
                 hasValue: true
             };
-            $("#node-input-item-property").typedInput({ default: this.itemPropertyType || 'item', types: [customType, 'flow', 'global'] });
-            $("#node-input-item-property").val(this.itemProperty);
+            $("#node-input-item-property").typedInput({
+                default: this.itemPropertyType || 'item',
+                types: [customType, 'flow', 'global']
+            });
+            $("#node-input-item-property").typedInput('value', this.itemProperty);
 
             $("#node-input-rule-container")
                 .css('min-height','250px')
