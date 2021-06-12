@@ -19,6 +19,7 @@
     "email": "contact@dannysu.com"
   },
   "scripts": {
+    "setup": "rm -f user/node_modules/node-red-contrib-filter && cd user/node_modules && ln -sf ../../ node-red-contrib-filter",
     "nodered": "node-red -u user"
   },
   "devDependencies": {
