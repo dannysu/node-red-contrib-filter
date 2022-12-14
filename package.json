@@ -23,6 +23,6 @@
     "nodered": "node-red -u user"
   },
   "devDependencies": {
-    "node-red": "^1.3.5"
+    "node-red": "^3.0.2"
   }
 }
